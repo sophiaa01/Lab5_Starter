@@ -8,11 +8,9 @@ function init()
   const image = document.querySelector("#expose img");
   const sound = document.querySelector("#expose audio");
   const button = document.querySelector("#expose button");
-  const volume = document.querySelector("#volume-controls input");
+  const volume_control = document.querySelector("#volume-controls input");
   const volume_img = document.querySelector("#volume-controls img");
-
   let dropDownList = document.querySelector("#expose select");
-
 
   dropDownList.addEventListener('change', function() 
   {
@@ -35,11 +33,13 @@ function init()
   
   button.addEventListener('click', function() 
   {
+    let volume_value = volume_control.value;
+    sound.volume = volume_value / 100;
     sound.play();
   });
 
   volume.addEventListener('change', function() {
-    let volume_value = volume.value;
+    let volume_value = volume_control.value;
     console.log(volume_value);
 
     if (volume_value == 0) {
