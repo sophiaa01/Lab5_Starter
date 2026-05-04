@@ -1,5 +1,4 @@
 // expose.js
-
 window.addEventListener('DOMContentLoaded', init);
 
 function init() 
@@ -36,6 +35,12 @@ function init()
     let volume_value = volume_control.value;
     sound.volume = volume_value / 100;
     sound.play();
+
+    if (dropDownList.value == "party-horn") {
+      const jsConfetti = new JSConfetti();
+      jsConfetti.addConfetti();
+    }
+    
   });
 
   volume.addEventListener('change', function() {
@@ -51,6 +56,6 @@ function init()
     } else if (volume_value >= 67) {
       volume_img.src = "assets/icons/volume-level-3.svg";
     }
-  }
-  );
+  });
+
 }
